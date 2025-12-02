@@ -1,0 +1,29 @@
+services:
+  db:
+    image: postgres:15-alpine
+    container_name: airoport_db
+    restart: always
+    environment:
+      POSTGRES_DB: airoport_db
+      POSTGRES_USER: kintxbwm
+      POSTGRES_PASSWORD: elKINTARO228
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+#pgadmin
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: airoport_adminka
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: fedotovpoliyt@gmail.com
+      PGADMIN_DEFAULT_PASSWORD: elKINTARO228
+    ports:
+      - "5050:80"
+    depends_on:
+      - db
+volumes:
+  postgres_data:
+
+
